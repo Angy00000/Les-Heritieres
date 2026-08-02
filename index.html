@@ -414,6 +414,7 @@
   .pay-methods{display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:18px;}
   .pay-chip{display:flex; flex-direction:column; align-items:center; gap:6px; padding:12px 6px; border-radius:14px; font-size:.72rem; font-weight:800; background:var(--card); border:1.5px solid rgba(46,26,18,0.14); color:var(--brown); transition:all .2s;}
   .pay-chip .ic{font-size:1.1rem;}
+  .pay-chip .pay-logo{width:26px; height:26px; border-radius:7px; object-fit:cover;}
   .pay-chip.active{background:var(--brown); color:var(--cream); border-color:var(--brown);}
 
   .order-summary-box{background:var(--card); border:1px solid rgba(46,26,18,0.1); border-radius:14px; padding:16px; margin-bottom:18px;}
@@ -435,7 +436,7 @@
     .badge-float.bf1{ top:2%; left:-4%; }
     .badge-float.bf2{ bottom:-2%; right:-2%; }
   }
-  @media (max-width:900px){
+  @media (max-width:1150px){
     nav.links{display:none;}
     .burger{display:flex;}
     .hero-grid{grid-template-columns:1fr; gap:44px; text-align:center; padding-bottom:50px;}
@@ -889,8 +890,8 @@
       <label style="display:block; font-size:.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); margin-bottom:10px;">Mode de paiement</label>
       <div class="pay-methods" id="payMethods">
         <button type="button" class="pay-chip active" data-pay="Especes">Espèces</button>
-        <button type="button" class="pay-chip" data-pay="Wave">Wave</button>
-        <button type="button" class="pay-chip" data-pay="Orange Money">Orange Money</button>
+        <button type="button" class="pay-chip" data-pay="Wave"><img class="pay-logo" src="data:image/jpeg;base64,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" alt="Wave">Wave</button>
+        <button type="button" class="pay-chip" data-pay="Orange Money"><img class="pay-logo" src="data:image/jpeg;base64,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" alt="Orange Money">Orange Money</button>
       </div>
 
       <div class="order-summary-box">
@@ -914,8 +915,10 @@
     <div class="confirm-view">
       <div class="confirm-check">✓</div>
       <h4>Merci pour votre commande !</h4>
-      <p>Nous vous contacterons rapidement au <strong id="confirmTel"></strong> pour confirmer votre livraison.</p>
+      <p>Votre commande a été préparée sur WhatsApp — il ne reste plus qu'à l'envoyer depuis l'onglet qui vient de s'ouvrir.</p>
+      <p style="margin-top:4px;">Nous vous contacterons au <strong id="confirmTel"></strong> pour confirmer la livraison.</p>
       <p class="ref">Référence commande : <strong id="confirmRef"></strong></p>
+      <a href="#" id="reopenWhatsapp" style="display:block; font-size:.82rem; font-weight:700; color:var(--brick); text-decoration:underline; margin-bottom:18px;">L'onglet WhatsApp ne s'est pas ouvert ? Cliquez ici</a>
       <button id="newOrder">Nouvelle commande</button>
     </div>
   </div>
@@ -929,6 +932,7 @@ try {
   const fmt = n => n.toLocaleString('fr-FR').replace(/,/g,' ') + ' FCFA';
   let cart = {}; // {id: {name, price, icon, qty}}
   let selectedPay = 'Especes';
+  let lastWhatsAppUrl = '';
 
   // ---------- Nav mobile ----------
   document.getElementById('burgerBtn').addEventListener('click', () => {
@@ -1146,11 +1150,38 @@ try {
   });
 
   // ---------- Submit order ----------
+  const RESTAURANT_WHATSAPP = '221770379762'; // +221 77 037 97 62
+
+  function buildWhatsAppMessage(nom, tel, adresse, quartier, commentaire){
+    const lines = [];
+    lines.push('🔥 *Nouvelle commande — Les Héritières*');
+    lines.push('');
+    cartItems().forEach(it => {
+      lines.push(`• ${it.qty} x ${it.name} — ${fmt(it.price * it.qty)}`);
+    });
+    lines.push('');
+    lines.push(`Sous-total : ${fmt(subtotal())}`);
+    lines.push(`Livraison : ${fmt(DELIVERY_FEE)}`);
+    lines.push(`*Total : ${fmt(subtotal() + DELIVERY_FEE)}*`);
+    lines.push('');
+    lines.push(`👤 Nom : ${nom}`);
+    lines.push(`📞 Téléphone : ${tel}`);
+    lines.push(`📍 Adresse : ${adresse}, ${quartier}`);
+    if(commentaire) lines.push(`📝 Commentaire : ${commentaire}`);
+    lines.push(`💳 Paiement : ${selectedPay}`);
+    return lines.join('\n');
+  }
+
+  function cartItems(){
+    return Object.entries(cart).filter(([,it]) => it.qty > 0).map(([,it]) => it);
+  }
+
   document.getElementById('submitOrder').addEventListener('click', ()=>{
     const nom = document.getElementById('f_nom').value.trim();
     const tel = document.getElementById('f_tel').value.trim();
     const adresse = document.getElementById('f_adresse').value.trim();
     const quartier = document.getElementById('f_quartier').value.trim();
+    const commentaire = document.getElementById('f_commentaire').value.trim();
     const err = document.getElementById('formError');
     if(!nom || !tel || !adresse || !quartier){
       err.classList.add('show');
@@ -1160,7 +1191,18 @@ try {
     const ref = 'HR-' + Math.floor(1000 + Math.random()*9000);
     document.getElementById('confirmTel').textContent = tel;
     document.getElementById('confirmRef').textContent = ref;
+
+    const message = buildWhatsAppMessage(nom, tel, adresse, quartier, commentaire);
+    const waUrl = 'https://wa.me/' + RESTAURANT_WHATSAPP + '?text=' + encodeURIComponent(message);
+    lastWhatsAppUrl = waUrl;
+    window.open(waUrl, '_blank');
+
     showView('confirm');
+  });
+
+  document.getElementById('reopenWhatsapp').addEventListener('click', (e)=>{
+    e.preventDefault();
+    if(lastWhatsAppUrl) window.open(lastWhatsAppUrl, '_blank');
   });
 
   document.getElementById('newOrder').addEventListener('click', ()=>{
