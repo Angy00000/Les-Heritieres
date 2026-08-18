@@ -883,8 +883,8 @@
     <div class="panel-body" id="cartBody"></div>
     <div class="panel-foot" id="cartFoot" style="display:none;">
       <div class="sum-row"><span>Sous-total</span><span id="sumSubtotal">0 FCFA</span></div>
-      <div class="sum-row"><span>Livraison (indicatif)</span><span id="sumDelivery">1 000 FCFA</span></div>
-      <div class="sum-row total"><span>Total</span><span id="sumTotal">0 FCFA</span></div>
+      <div class="sum-row"><span>Livraison</span><span id="sumDelivery">Négociable</span></div>
+      <div class="sum-row total"><span>Total (hors livraison)</span><span id="sumTotal">0 FCFA</span></div>
       <button class="panel-cta" id="goCheckout">Passer la commande →</button>
     </div>
   </div>
@@ -927,8 +927,8 @@
 
       <div class="order-summary-box">
         <div class="sum-row"><span>Sous-total</span><span id="ck_subtotal">0 FCFA</span></div>
-        <div class="sum-row"><span>Livraison</span><span id="ck_delivery">1 000 FCFA</span></div>
-        <div class="sum-row total"><span>Total à payer</span><span id="ck_total">0 FCFA</span></div>
+        <div class="sum-row"><span>Livraison</span><span id="ck_delivery">Négociable</span></div>
+        <div class="sum-row total"><span>Total à payer (hors livraison)</span><span id="ck_total">0 FCFA</span></div>
       </div>
     </div>
     <div class="panel-foot">
@@ -959,7 +959,7 @@
 <script>
 (function(){
 try {
-  const DELIVERY_FEE = 1000;
+  const DELIVERY_FEE_LABEL = 'Négociable';
   const fmt = n => n.toLocaleString('fr-FR').replace(/,/g,' ') + ' FCFA';
   let cart = {}; // {id: {name, price, icon, qty}}
   let selectedPay = 'Especes';
@@ -1105,12 +1105,12 @@ try {
   function renderSummaries(){
     const sub = subtotal();
     const hasItems = cartCount() > 0;
-    const total = hasItems ? sub + DELIVERY_FEE : 0;
+    const total = sub;
     document.getElementById('sumSubtotal').textContent = fmt(sub);
-    document.getElementById('sumDelivery').textContent = fmt(DELIVERY_FEE);
+    document.getElementById('sumDelivery').textContent = DELIVERY_FEE_LABEL;
     document.getElementById('sumTotal').textContent = fmt(total);
     document.getElementById('ck_subtotal').textContent = fmt(sub);
-    document.getElementById('ck_delivery').textContent = fmt(DELIVERY_FEE);
+    document.getElementById('ck_delivery').textContent = DELIVERY_FEE_LABEL;
     document.getElementById('ck_total').textContent = fmt(total);
   }
 
@@ -1192,8 +1192,8 @@ try {
     });
     lines.push('');
     lines.push(`Sous-total : ${fmt(subtotal())}`);
-    lines.push(`Livraison : ${fmt(DELIVERY_FEE)}`);
-    lines.push(`*Total : ${fmt(subtotal() + DELIVERY_FEE)}*`);
+    lines.push(`Livraison : ${DELIVERY_FEE_LABEL} (à discuter selon la zone)`);
+    lines.push(`*Total (hors livraison) : ${fmt(subtotal())}*`);
     lines.push('');
     lines.push(`👤 Nom : ${nom}`);
     lines.push(`📞 Téléphone : ${tel}`);
